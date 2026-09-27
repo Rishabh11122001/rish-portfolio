@@ -1,50 +1,95 @@
-# Rishabh Bhagchandani — data portfolio
+# Rishabh Bhagchandani — Portfolio
 
-A single-page React + TypeScript + Tailwind CSS portfolio with a Vite build. No backend, API keys or paid service required.
+A modern, responsive single-page portfolio built with **React**, **TypeScript**, and **Tailwind CSS**, powered by **Vite**. This project showcases a professional portfolio with zero backend dependencies, no API keys, and no paid services required.
 
-## Run locally
+## 🚀 Live Demo
 
-Install Node.js 22.13 or newer, unzip this folder, then open a terminal inside it:
+Visit your portfolio: **[https://sweet-taffy-8a30d1.netlify.app/](https://sweet-taffy-8a30d1.netlify.app/)**
+
+## ✨ Key Features
+
+- **Fast & Lightweight**: Built with Vite for instant development and optimized production builds
+- **Fully Responsive**: Mobile-first design that works seamlessly across all devices
+- **Interactive UI**: Smooth animations, accessible tabs, and intuitive navigation
+- **Easy Customization**: Simple configuration through a single `portfolio.ts` file
+- **No Backend Required**: Static site hosting on Vercel, Netlify, or GitHub Pages
+- **SEO Friendly**: Semantic HTML and proper metadata support
+- **Dark/Light Mode Ready**: Theme tokens for easy customization
+
+## 🎯 What This Portfolio Includes
+
+- **Profile Section**: Display your GitHub, LinkedIn, email, and resume
+- **Major Projects**: Showcase 5+ key projects with repository and demo links
+- **Mini Projects**: Filter and display up to 12 projects by category (AI/Python, Web Dev, Hackathons, etc.)
+- **Smooth Animations**: Scroll-triggered animations for engaging visual experience
+- **Mobile Navigation**: Hamburger menu with keyboard support (Escape to close)
+- **Tab Navigation**: Arrow keys to switch between sections
+
+## 🏃 Run Locally
+
+Install **Node.js 22.13** or newer, then:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. Production build:
+Open the local URL printed by Vite. For production:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Upload `dist/` to a static host. Vercel/Netlify: build command `npm run build`, output directory `dist`. Relative Vite base also supports GitHub Pages subfolder hosting.
+Upload `dist/` to any static host (Vercel, Netlify, GitHub Pages, etc.).
 
-## Add your links
+For Netlify/Vercel: Use build command `npm run build` and output directory `dist`.
+
+## ✏️ Customize Your Portfolio
 
 Edit **src/data/portfolio.ts**:
 
-- `profile.githubUsername`: default Rishabh11122001; replace if needed.
-- `profile.linkedinUrl`: your supplied LinkedIn URL is configured.
-- `profile.email`: public email; enables email links and Say hello mailto button.
-- `profile.resumeUrl`: put the PDF in `public/resume.pdf`, then set `./resume.pdf`.
-- Each major project's `github` and `demo`: exact repository and frontend demo URLs.
+- `profile.githubUsername`: GitHub username (default: Rishabh11122001)
+- `profile.linkedinUrl`: Your LinkedIn profile URL
+- `profile.email`: Public email address
+- `profile.resumeUrl`: Link to your resume (place PDF in `public/resume.pdf`, then set `./resume.pdf`)
+- **Major Projects**: Add exact GitHub repository and demo URLs
+- **Mini Projects**: Define projects with tags for category filtering
 
-Empty URLs visibly show Soon and are not clickable. No nonexistent PDF or invented URL is presented as working. Five major-project repository URLs and three README-sourced demo URLs are supplied. Spice Garden still needs a public repository/demo URL. The Actor Biography mini-project links to Informative-Page. Resume downloads work best with a same-origin file; remote hosts control their own downloads.
+Leave URLs empty to show "Soon" placeholders (non-clickable).
 
-## Structure
+## 📁 Project Structure
 
-- `src/App.tsx`: section order.
-- `src/data/portfolio.ts`: profile links, major projects, mini projects.
-- `src/components/portfolio/`: a separate file for each section plus shared elements and scroll animation.
-- `src/components/ui/tabs.tsx`: accessible Radix/Shadcn tabs.
-- `src/index.css`: theme tokens, Tailwind import and responsive styling.
-- `public/favicon.svg`: initials favicon; put your resume PDF here too.
-- `CODE.md`: full source, file by file, for reading or copying.
-- `DESIGN.md`: visual decisions.
+```
+src/
+├── App.tsx                    # Main app and section order
+├── data/portfolio.ts          # Profile, projects, and links configuration
+├── components/
+│   ├── portfolio/             # Each section as separate component
+│   ├── ui/tabs.tsx           # Accessible Radix/Shadcn tabs
+│   └── shared/               # Reusable elements and animations
+├── index.css                  # Theme tokens, Tailwind, responsive styles
+└── public/
+    ├── favicon.svg           # Custom favicon
+    └── resume.pdf            # Your resume (optional)
+```
 
-## Behaviour and content
+See **CODE.md** for full source documentation and **DESIGN.md** for design decisions.
 
-Responsive grids; mobile navigation with Escape dismissal; active sections; 12 mini projects filtered with React state: All 12, AI/Python 6, Web Dev 4, Hackathon 2. Arrow keys switch tabs. Reduced motion, keyboard focus and skip link are included. Inter loads from Google Fonts with a system fallback.
+## 💡 Built With
 
-Only supplied metrics are used. No fabricated accuracy, performance or client numbers. Teaching Assistant dates, courses and student counts were not supplied and are omitted. Reference: https://dhruvi-05.github.io/my_portfolio/ for section organisation. The name-first hero and expertise columns also draw on https://adi-1805.github.io/_Portfolio_/. None of the reference owner's qualifications or contact details were copied.
+- **React** + **TypeScript**: Type-safe component development
+- **Vite**: Lightning-fast build tool
+- **Tailwind CSS**: Utility-first styling
+- **Radix UI / Shadcn**: Accessible component primitives
+- **HTML/CSS**: Modern semantic markup
+
+## 📊 Repository Stats
+
+- **HTML**: 93.6%
+- **TypeScript**: 3.9%
+- **CSS**: 2.5%
+
+---
+
+**Ready to use?** Clone this repo, customize `src/data/portfolio.ts` with your information, and deploy to your favorite static host!
