@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spice Garden — Case Study</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #0d0f13;
+    color: #e6e8eb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 16px 64px;
+    line-height: 1.65;
+  }
+  main { max-width: 720px; width: 100%; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: #7dd3fc;
+    font-weight: 600;
+  }
+  h1 { font-size: 1.9rem; margin: 10px 0 6px; }
+  .sub { color: #a1a8b3; margin: 0 0 32px; font-size: 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .tag {
+    border: 1px solid #23262e;
+    background: #14161b;
+    color: #c7cbd1;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin: 34px 0 10px;
+    color: #f2f4f6;
+    border-left: 3px solid #7dd3fc;
+    padding-left: 10px;
+  }
+  p { color: #c7cbd1; margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 20px; color: #c7cbd1; }
+  li { margin-bottom: 8px; }
+  .note {
+    margin-top: 40px;
+    padding: 14px 16px;
+    border: 1px solid #23262e;
+    border-radius: 10px;
+    background: #14161b;
+    color: #a1a8b3;
+    font-size: 0.85rem;
+  }
+  a.back {
+    display: inline-block;
+    margin-top: 28px;
+    color: #7dd3fc;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  a.back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Case Study · Client Project</div>
+  <h1>Spice Garden — Restaurant Management Platform</h1>
+  <p class="sub">A production system built for a real restaurant, from first request to a running kitchen.</p>
+  <div class="tags">
+    <span class="tag">React</span>
+    <span class="tag">Node.js / Express</span>
+    <span class="tag">PostgreSQL (Supabase)</span>
+    <span class="tag">Socket.io</span>
+    <span class="tag">Railway + Vercel</span>
+  </div>
+
+  <h2>The problem</h2>
+  <p>A friend running a restaurant needed to move off paper order slips and manual billing. The ask: real-time order tracking from table to kitchen, GST-compliant billing, and a way to see how the business was actually performing — all for a live restaurant, not a demo.</p>
+
+  <h2>What I built</h2>
+  <ul>
+    <li>A Kitchen Display System and waiter-facing orders panel, with orders moving in real time via Socket.io as soon as they're placed.</li>
+    <li>GST-aware billing built to match how the restaurant actually invoices customers.</li>
+    <li>Payment analytics and operational dashboards so the owner can see sales and order trends without digging through receipts.</li>
+    <li>A PostgreSQL (Supabase) data layer with a Node.js/Express API and a React frontend, deployed on Railway (backend) and Vercel (frontend).</li>
+  </ul>
+
+  <h2>Problems I had to actually debug in production</h2>
+  <ul>
+    <li><strong>Railway–Supabase connectivity:</strong> intermittent connection failures traced to an IPv6/IPv4 mismatch between the two platforms — fixed by forcing the correct connection mode.</li>
+    <li><strong>CORS and QR-code ordering flow:</strong> customers scan a table QR code to order directly, which meant getting cross-origin requests and dynamic table sessions working reliably from phones on restaurant Wi-Fi.</li>
+    <li><strong>Timezone bugs across the stack:</strong> order timestamps were drifting because SQL, the frontend's date handling, and node-postgres were each interpreting time differently — normalized all three to IST consistently.</li>
+  </ul>
+
+  <h2>Why it matters</h2>
+  <p>This wasn't a portfolio dataset or a tutorial clone — it's software a real restaurant runs on, which meant the bugs were real too: production connectivity failures, real customers hitting the QR ordering flow, and timestamps that had to be correct for actual billing. Debugging those end-to-end, across infrastructure, network, and data layers, is the part that doesn't show up in a screenshot.</p>
+
+  <div class="note">This is a live client system, so the source isn't public and there's no open demo login — this page is a written walkthrough instead. Happy to talk through the architecture or any of the specific bugs in more detail.</div>
+
+  <a class="back" href="javascript:history.back()">← Back to portfolio</a>
+</main>
+</body>
+</html>
