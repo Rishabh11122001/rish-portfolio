@@ -379,6 +379,9 @@ ul {
 .about-copy {
   color: var(--muted-foreground);
 }
+.about-copy-full {
+  max-width: 760px;
+}
 .about-copy p + p {
   margin-top: 18px;
 }

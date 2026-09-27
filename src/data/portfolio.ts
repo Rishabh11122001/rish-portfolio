@@ -1,12 +1,13 @@
-// PERSONAL LINKS: plug in your GitHub username, LinkedIn URL, email and resume PDF.
-// Empty URLs intentionally render as unavailable, never as broken '#' links.
+// PERSONAL LINKS
 export const profile = {
   name: "Rishabh Bhagchandani",
-  githubUsername: "Rishabh11122001", // Replace if needed.
-  linkedinUrl: "https://www.linkedin.com/in/rishabh-bhagchandani-1bab46258/", // e.g. https://www.linkedin.com/in/YOUR_USERNAME/
-  email: "rishabhbhagchandani29@gmail.com", // Your public contact email.
-  resumeUrl: "/resume.pdf", // Put resume.pdf in public/ and set this to '/resume.pdf'.
+  githubUsername: "Rishabh11122001",
+  linkedinUrl:
+    "https://www.linkedin.com/in/rishabh-bhagchandani-1bab46258/",
+  email: "rishabhbhagchandani29@gmail.com",
+  resumeUrl: "/resume.pdf",
 };
+
 export const navigation = [
   "Home",
   "About",
@@ -16,14 +17,16 @@ export const navigation = [
   "Achievements",
   "Contact",
 ];
+
 export const sectionId = (label: string) =>
   label.toLowerCase().replaceAll(" ", "-");
+
 export type Project = {
   title: string;
   category: string;
   icon: string;
   description: string;
-  demoLabel?: string; // Override the "Live Demo" button label (e.g. "Case Study").
+  demoLabel?: string;
   bullets: string[];
   tags: string[];
   github: string;
@@ -31,25 +34,76 @@ export type Project = {
   metric: string;
   metricLabel: string;
 };
-// PROJECT LINKS: plug in the exact GitHub repository and live demo URLs below.
-// Never put API keys or private credentials in this frontend file.
+
+// PROJECT LINKS:
+// Update GitHub repository and live demo URLs here.
+// Local demo files must be placed inside the public folder.
+// Never put API keys or credentials in this file.
 export const projects: Project[] = [
   {
-    title: "RecallAI",
-    category: "AI STUDY ASSISTANT",
-    icon: "brain",
+    title: "Data Analyst Copilot",
+    category: "AI-POWERED DATA ANALYSIS",
+    icon: "sparkles",
     description:
-      "Free-form notes become structured flashcards and quizzes, ready for your next study session.",
+      "Ask a question in plain English. Get validated PostgreSQL queries, live data, charts and insights.",
     bullets: [
-      "2 study formats powered by an Express + Groq backend and stateful React frontend.",
-      "Zod validates untrusted LLM output; handles malformed, empty and timed-out responses.",
-      "AbortController + request IDs prevent stale responses. Deployed on Render.",
+      "Queries a 99K-order warehouse; visualizes results with Plotly.",
+      "Gemini-to-Groq fallback, query timeouts and destructive-SQL blocking.",
+      "Validated with 24 automated tests.",
     ],
-    tags: ["React", "TypeScript", "Express", "Zod", "Groq"],
-    github: "https://github.com/Rishabh11122001/recall-ai",
-    demo: "https://recall-ai-vzr9.onrender.com",
-    metric: "2",
-    metricLabel: "study formats",
+    tags: [
+      "Python",
+      "PostgreSQL",
+      "Streamlit",
+      "Gemini",
+      "Groq",
+      "Plotly",
+    ],
+    github:
+      "https://github.com/Rishabh11122001/ai-data-analyst-copilot",
+    demo:
+      "https://ai-data-analyst-copilot-9dmnh4izbccbpgpuyur8e2.streamlit.app",
+    metric: "24",
+    metricLabel: "automated tests",
+  },
+  {
+    title: "Customer Churn Analysis",
+    category: "MACHINE LEARNING",
+    icon: "users",
+    description:
+      "Exploring customer behaviour and predicting churn with a reproducible machine-learning workflow.",
+    bullets: [
+      "Analysed a 2,000-customer synthetic dataset stored in SQLite.",
+      "Trained 2 model families: Logistic Regression and Random Forest.",
+      "Improved churn recall from 35% to 61%, then to ~92% after threshold tuning.",
+      "Segmentation showed Basic + Monthly customers churn at 58% vs. 12% for Premium + Two-year plans.",
+    ],
+    tags: ["Python", "Pandas", "Scikit-learn", "SQLite"],
+    github:
+      "https://github.com/Rishabh11122001/customer-churn-analysis-prediction",
+    demo: "/churn_analysis.html",
+    demoLabel: "View Analysis",
+    metric: "92%",
+    metricLabel: "tuned recall",
+  },
+  {
+    title: "E-Commerce Revenue & Operations",
+    category: "BUSINESS INTELLIGENCE",
+    icon: "database",
+    description:
+      "Turning the Olist Brazilian e-commerce dataset into a structured view of revenue and operations.",
+    bullets: [
+      "Transformed 9 raw datasets into a star schema across ~99K orders (4 dimensions, 4 fact tables).",
+      "Reconciled R$15.84M in order value and investigated a R$165K payment gap.",
+      "Built a 3-page Power BI dashboard tracking R$13.59M in merchandise sales, repeat customers, and delivery KPIs.",
+    ],
+    tags: ["PostgreSQL", "Power BI", "DAX", "Excel"],
+    github:
+      "https://github.com/Rishabh11122001/ecommerce-revenue-operations-analytics",
+    demo: "/ecommerce-dashboard-demo.html",
+    demoLabel: "Watch Walkthrough",
+    metric: "99K",
+    metricLabel: "orders analysed",
   },
   {
     title: "PulseBoard",
@@ -70,6 +124,23 @@ export const projects: Project[] = [
     metricLabel: "transactions",
   },
   {
+    title: "RecallAI",
+    category: "AI STUDY ASSISTANT",
+    icon: "brain",
+    description:
+      "Free-form notes become structured flashcards and quizzes, ready for your next study session.",
+    bullets: [
+      "2 study formats powered by an Express + Groq backend and stateful React frontend.",
+      "Zod validates untrusted LLM output; handles malformed, empty and timed-out responses.",
+      "AbortController + request IDs prevent stale responses. Deployed on Render.",
+    ],
+    tags: ["React", "TypeScript", "Express", "Zod", "Groq"],
+    github: "https://github.com/Rishabh11122001/recall-ai",
+    demo: "https://recall-ai-vzr9.onrender.com",
+    metric: "2",
+    metricLabel: "study formats",
+  },
+  {
     title: "Spice Garden",
     category: "CLIENT PROJECT · FULL STACK",
     icon: "restaurant",
@@ -80,76 +151,21 @@ export const projects: Project[] = [
       "Socket.io connects order updates; resolved connectivity, CORS and timezone issues.",
       "PostgreSQL/Supabase data layer, deployed across Railway + Vercel.",
     ],
-    tags: ["React", "Node.js", "Express", "Supabase", "Socket.io"],
+    tags: [
+      "React",
+      "Node.js",
+      "Express",
+      "Supabase",
+      "Socket.io",
+    ],
+    // Add a public repository URL here if available.
     github: "",
     demo: "/spice-garden-case-study.html",
     demoLabel: "Case Study",
     metric: "Live",
     metricLabel: "order updates",
   },
-  {
-    title: "Data Analyst Copilot",
-    category: "AI-POWERED DATA ANALYSIS",
-    icon: "sparkles",
-    description:
-      "Ask a question in plain English. Get validated PostgreSQL queries, live data, charts and insights.",
-    bullets: [
-      "Queries a 99K-order warehouse; visualizes results with Plotly.",
-      "Gemini-to-Groq fallback, query timeouts and destructive-SQL blocking.",
-      "Validated with 24 automated tests.",
-    ],
-    tags: ["Python", "PostgreSQL", "Streamlit", "Gemini", "Groq", "Plotly"],
-    github: "https://github.com/Rishabh11122001/ai-data-analyst-copilot",
-    demo: "https://ai-data-analyst-copilot-9dmnh4izbccbpgpuyur8e2.streamlit.app",
-    metric: "24",
-    metricLabel: "automated tests",
-  },
-  {
-    title: "Customer Churn Analysis",
-    category: "MACHINE LEARNING",
-    icon: "users",
-    description:
-      "Exploring customer behaviour and predicting churn with a reproducible machine-learning workflow.",
-    bullets: [
-      "Analysed a 2,000-customer synthetic dataset stored in SQLite.",
-      "Trained 2 model families: Logistic Regression and Random Forest.",
-    ],
-    tags: ["Python", "Pandas", "Scikit-learn", "SQLite"],
-    github:
-      "https://github.com/Rishabh11122001/customer-churn-analysis-prediction",
-    demo: "/churn_analysis.html",
-    metric: "2,000",
-    metricLabel: "customers analysed",
-  },
-  {
-    title: "E-Commerce Revenue & Operations",
-    category: "BUSINESS INTELLIGENCE",
-    icon: "database",
-    description:
-      "Turning the Olist Brazilian e-commerce dataset into a structured view of revenue and operations.",
-    bullets: [
-      "Built a PostgreSQL star schema for analytics on the Olist dataset.",
-      "Created a Power BI dashboard with DAX measures and Excel analysis.",
-    ],
-    tags: ["PostgreSQL", "Power BI", "DAX", "Excel"],
-    github:
-      "https://github.com/Rishabh11122001/ecommerce-revenue-operations-analytics",
-    demo: "/ecommerce-dashboard-demo.html",
-    metric: "Olist",
-    metricLabel: "e-commerce data",
-  },
 ];
-const projectOrder = [
-  "Data Analyst Copilot",
-  "Customer Churn Analysis",
-  "E-Commerce Revenue & Operations",
-  "PulseBoard",
-  "RecallAI",
-  "Spice Garden",
-];
-projects.sort(
-  (a, b) => projectOrder.indexOf(a.title) - projectOrder.indexOf(b.title),
-);
 
 export const categories = [
   "All",
@@ -157,7 +173,9 @@ export const categories = [
   "Web Dev",
   "Hackathon",
 ] as const;
+
 export type Category = (typeof categories)[number];
+
 export const miniProjects: {
   title: string;
   description: string;
@@ -192,7 +210,8 @@ export const miniProjects: {
   },
   {
     title: "AI Personal Assistant",
-    description: "Voice-powered web search, app launches and task automation.",
+    description:
+      "Voice-powered web search, app launches and task automation.",
     tags: ["Python", "SpeechRecognition", "NLP"],
     category: "AI / Python",
     icon: "mic",
@@ -231,7 +250,8 @@ export const miniProjects: {
   },
   {
     title: "Countdown Timer",
-    description: "Real-time interval updates with Django template integration.",
+    description:
+      "Real-time interval updates with Django template integration.",
     tags: ["Django", "JavaScript"],
     category: "Web Dev",
     icon: "timer",
@@ -246,12 +266,12 @@ export const miniProjects: {
   },
   {
     title: "Actor Biography Website",
-    github: "https://github.com/Rishabh11122001/Informative-Page",
     description:
       "Responsive Flexbox biography cards, hover effects and movie links.",
     tags: ["HTML5", "CSS3"],
     category: "Web Dev",
     icon: "film",
+    github: "https://github.com/Rishabh11122001/Informative-Page",
   },
   {
     title: "Age Calculator",

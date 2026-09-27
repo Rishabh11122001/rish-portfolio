@@ -33,9 +33,11 @@ export default function Projects() {
             </ul>
             <Tags values={project.tags} />
             <div className="project-links">
-              <ExternalLink href={project.github} icon="github">
-                GitHub
-              </ExternalLink>
+              {project.github && (
+                <ExternalLink href={project.github} icon="github">
+                  GitHub
+                </ExternalLink>
+              )}
               <ExternalLink href={project.demo}>
                 {project.demoLabel ?? "Live Demo"}
               </ExternalLink>
